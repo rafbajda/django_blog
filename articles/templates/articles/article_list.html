@@ -1,0 +1,32 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<h1>Article list</h1>
+<div class="articles">
+    {% for article in articles %}
+
+    <div class="row">
+            <div class="col s12">
+              <div class="card z-depth-2">
+                <div class="card-image">
+                  <img id = "articleImg" src="{{article.thumb.url}}">
+                </div>
+                <div class="card-content">
+                        <p>{{article.snippet}}</p>
+                        <p>{{article.date}}</p>
+                        <p>Comments: {{ article.comments.count }}</p>
+                </div>
+                <div class="card-action">
+                    <h5 class = "center-align">  
+                         <a href="{% url 'articles:detail' slug=article.slug %}">{{article.title}}</a>
+                    </h5>  
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

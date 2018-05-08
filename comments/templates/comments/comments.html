@@ -1,0 +1,13 @@
+<div class=" mt-5">
+        {% for comment in article.comments.all %}
+            <div class="comment mt-1 card bg-dark text-light">
+                <div class="card-body ">
+                    <div class="date font-weight-light">{{ comment.created_date }}</div>
+                    <p class="font-weight-bold">{{ comment.author }}</p>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p>No comments here yet :(</p>
+        {% endfor %}
+    </div>

@@ -1,0 +1,18 @@
+{% extends 'base_template.html' %}
+
+
+{% block content %}
+<main class="article-detail container">
+    <div class="article card text-dark my-5">
+        <div class="card-body text-left ">
+            <img class="article-thumb mr-4 mb-4" src="{{article.thumb.url}}"/>
+            <h2 class="font-w700">{{article.title}}</h2>
+            <p>{{article.body}}</p>
+            <p>{{article.date}}</p>
+        </div>
+    </div>
+    <a class="btn btn-lg btn-primary mt-3" href="{% url 'articles:add_comment_to_post' slug=article.slug %}">Add comment</a>
+
+    {% include "comments/comments.html" %}
+</main>
+{% endblock %}
